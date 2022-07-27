@@ -1,0 +1,13 @@
+<form [formGroup]="timeSub" (ngSubmit)="subTime()" class="spacing-center">
+    <div>
+        <p class="day">{{this.today | date:'ccc: MMMM d, y'}}</p>
+        <input type="text" id="subject" name="subject" formControlName="subject" class="inputs spacing-center" placeholder="subject">
+        <input type="text" id="time" name="time" formControlName="time" class="inputs spacing-center" placeholder="HH:MM">
+        <p *ngIf="time?.errors?.['validTime']" class="error">Must be in HH:MM format.</p>
+
+    </div>
+</form>
+    <!--Login button-->
+    <div class="butt">
+        <button (click)="subTime()" [disabled]="!timeSub.valid" mat-raised-button class="account" type="submit">submit</button>
+    </div>

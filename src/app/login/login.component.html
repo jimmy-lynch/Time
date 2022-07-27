@@ -1,0 +1,58 @@
+<div class="backdrop">
+    <div class="spacing-center">
+        <!--This is the title-->
+        <div class="spacing-center">
+            <h1 class="title"> welcome to timenote</h1>
+        </div>
+
+        <!--Login-->
+            <form [formGroup]="currAccount" (ngSubmit)="subLogin()" class="spacing-center">
+                <div *ngIf="login" class="login-input">
+                    <input type="text" id="username" name="username" formControlName="userLogin" class="inputs spacing-center" placeholder="username">
+                    <br>
+                    <input type="text" id="password" name="password" formControlName="passLogin" class="inputs spacing-center" placeholder="password">
+                    <p class="login-error">{{text}}</p>
+                </div>
+                <!--Login button-->
+                <div class="butt" *ngIf="!createAcc">
+                    <button *ngIf="orr" (click)="showLogin()" mat-raised-button [style.background-color]="loginBackground" class="account">login</button>
+                    <button *ngIf="login" (click)="subLogin()" mat-raised-button [style.background-color]="loginBackground" class="account adjustment" type="submit">login</button>
+                </div>
+            </form>
+
+        
+
+        <p class="orr" *ngIf="orr">or</p>
+            
+            <!--Create Account form group-->
+        <form [formGroup]="newAccount" (ngSubmit)="subNewAcc()" class="spacing-center">
+            <div *ngIf="createAcc" class="login-input">
+            
+                <input type="text" id="username" name="username" formControlName="username" class="inputs spacing-center" placeholder="username">
+                    <p *ngIf="username?.errors?.['accountExist']" class="does-not-match other-errors">This account already exists</p>
+                <br>
+                <input type="text" id="email" name="email" formControlName="email" class="inputs spacing-center" placeholder="email">
+                    <p *ngIf="email?.errors?.['email']" class="does-not-match other-errors">Please input a valid email.</p>
+                    <br>
+
+                <div formGroupName="passwords">
+                <!--Create Account input specifics, and validators-->
+                <input type="text" id="password" name="password" formControlName="password" required class="inputs spacing-center" placeholder="password">
+                    <p class="sub-info">Must be a minimum of 6 characters, with one Uppercase letter and number.</p>
+                        <p *ngIf="newAccount.hasError('notSame', 'passwords')" class="does-not-match"> Passwords must match.</p>
+                        <p *ngIf="password?.errors?.['minlength']" class="does-not-match other-errors">Password must contain atleast 6 characters.</p>
+                        <p *ngIf="password?.errors?.['hasUpperCase']" class="does-not-match other-errors">Password must contain atleast one uppercase letter.</p>
+                        <p *ngIf="password?.errors?.['hasNumber']" class="does-not-match other-errors">Password must contain atleast one number.</p>
+                    <input type="text" id="repeatPass" name="repeatPass" formControlName="repeatPass" class="inputs spacing-center" placeholder="repeat password">
+                    <p class="sub-info">Must match the previously inputted password.</p>
+                </div>
+            </div>
+                <div class="butt">
+                    <button *ngIf="orr" (click)="showCreateAcc()" mat-raised-button [style.background-color]="accountBackground" class="account">create account</button>
+                    <button *ngIf="createAcc" (click)="subNewAcc()" [disabled]="!newAccount.valid" mat-raised-button [style.background-color]="accountBackground" class="account" type="submit">create account</button>
+                </div>
+                <p *ngIf="createAcc" class="sub-info notice">Note, these passwords are NOT secure or encrypted, and are stored in plain text for the simplicity of demonstrating.</p>        
+        </form>
+
+        
+</div>

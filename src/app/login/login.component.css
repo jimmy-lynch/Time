@@ -1,0 +1,131 @@
+.account {
+    background-color: #82C0CC;
+    width: 180px;
+    height: 40px;
+    padding-bottom: 5px;
+    align-items: center;
+    font-size: 26px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    font-variant: small-caps;
+}
+
+.account:hover {
+    background-color: #ffffff;
+}
+
+.does-not-match {
+    font-size: 15px;
+    color: red;
+    align-items: left;
+    margin-bottom: 0px;
+}
+
+.other-errors {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.orr {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: #A78A76;
+    margin-top: -40px;
+    margin-bottom: -40px;
+}
+
+.sub-info {
+    font-size: 10px;
+    width: 270px;
+    color: #A78A76;
+    justify-content: center;
+    margin: auto;
+    line-height: 15px;
+    padding-top: 3px;
+    padding-bottom: 10px;
+}
+
+.login {
+    background-color: #82C0CC;
+    width: 180px;
+    height: 40px;
+    padding-bottom: 5px;
+    align-items: center;
+    font-size: 26px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    font-variant: small-caps;
+}
+
+.login:hover {
+    background-color: #489FB5;
+}
+
+.login-input {
+    gap: 100px;
+}
+
+.inputs {
+ height: 40px;
+ width: 250px;
+ padding-left: 10px;
+ gap: 100px;
+ margin-top: 20px;
+ 
+}
+
+.backdrop {
+    padding-top: 10em;
+    display: flexbox;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    background-color: #ede7e3;
+    margin: -10px;
+    padding-left: 300px;
+    padding-right: 300px;
+    height: 70em;
+}
+.butt {
+    justify-content: center;
+    margin: auto;
+}
+.spacing-center {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+    gap: 5em;
+}
+
+.title {
+    display: flex;
+    font-size: 130px;
+    font-family: 'Comfortaa';
+    line-height: 100px;
+    font-variant: small-caps;
+    height: 100px;
+    font-weight: bolder;
+    color: #489FB5;
+    margin-bottom: 1em;
+}
+
+.notice {
+    margin-top: -60px;
+}
+
+.login-error {
+    margin-top: 12px;
+    margin-bottom: -15px;
+    color: red;
+    font-family: 'Comfortaa';
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.adjustment {
+    margin-top: 1px;
+}

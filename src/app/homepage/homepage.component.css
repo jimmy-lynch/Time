@@ -1,0 +1,55 @@
+.nav-space {
+    padding-top: 70px;
+}
+
+.display-msg {
+    font-family: Inter;
+    font-size: 15px;
+    justify-content: center;
+    padding-right: 5px;
+    padding-top: 5px;
+    color: #317264;
+    display: flex;
+}
+
+.date {
+    font-family: Lato;
+    font-size: 30px;
+    justify-content: center;
+    display: flex;
+    padding-top: 50px;
+    padding-right: 15px;
+    color: #317264;
+    font-weight: bold;
+    margin-left: 180px;
+
+}
+
+.plus{
+    background-color: #FFB685;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    height: 50px!important;
+    width: 50px!important;
+    min-width: unset!important;
+    display: flex;
+    margin-left: 0;
+    border: 4px double #ffffff;
+}
+
+.plus:hover {
+    background: #FF9D5C;
+}
+
+.div {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-direction: row;
+    background-color: #f1f9f7;
+    padding-bottom: 40px;
+    margin-right: -10px;
+    margin-left: -10px;
+}
+

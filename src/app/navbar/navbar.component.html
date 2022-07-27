@@ -1,0 +1,16 @@
+<nav class="nav">
+    <div class="webpages">
+        <a routerLink="/home" tag="img">
+            <img src="assets/img/Timenote logo.png" class="logo">
+        </a>
+        <div class="options">
+            <a routerLink="/current-week" routerLinkActive="selected" class="nav_options">current week</a>
+            <a routerLink="/timesheets" routerLinkActive="selected" class="nav_options">past timesheets</a>
+            <p class="user">Welcome, {{active}}</p>
+            <button mat-raised-button class="logout" (click)="logout()">logout</button>
+        </div>
+
+    </div>
+</nav>
+
+

@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<div class="nav-space"></div>
+
+<h1 class="display-msg">{{msg}} </h1>
+<div class="div">
+    <button mat-flat-button class="plus" (click)="addTime()">+</button>
+    <p class="date">{{this.today | date:'cccc: MMMM d, y'}}</p> 
+</div>
+<div>
+    <p>total hours</p>
+    <p>subject -> hours (label + display)</p>
+</div>

@@ -1,0 +1,58 @@
+.spacing-center {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.day {
+    margin-top: -12px;
+    margin-left: -8px;
+    margin-bottom: -5px;
+}
+.inputs {
+    height: 50px;
+    width: 250px;
+    padding-left: 10px;
+    gap: 15px;
+    margin-top: 20px;
+    background-color: #FFF3EB;
+    border: 2px solid #F3F7F7;
+}
+
+.login-error {
+    margin-top: 12px;
+    margin-bottom: -15px;
+    color: red;
+    font-family: 'Comfortaa';
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.account {
+    background-color: #FAF9F9;
+    width: 180px;
+    height: 50px;
+    padding-bottom: 5px;
+    align-items: center;
+    font-size: 26px;
+    color: #474C5C;
+    display: flex;
+    justify-content: center;
+    font-variant: small-caps;
+}
+
+.butt {
+    justify-content: center;
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.error {
+    margin-bottom: -25px;
+    margin-top: 5px;
+    margin-left: 70px;
+    font-size: 10px;
+}
