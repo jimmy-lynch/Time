@@ -30,7 +30,7 @@ export class HomepageComponent implements OnInit {
   public i = Math.floor(this.welcome_msg.length * Math.random()); 
   public msg = this.welcome_msg[this.i];
 
-  constructor(private date: DaeService, public dialog: MatDialog) {
+  constructor(private date: DaeService, public dialog: MatDialog, private currUser: ActiveUserService) {
   }
 
   public today = this.date.getDate();
@@ -40,12 +40,35 @@ export class HomepageComponent implements OnInit {
       width: '450px',
       height: '280px'
     });
-
   }
+  
+  public curr: User = this.currUser.getActiveStorage();
+  public currentTS: Timesheet = this.curr.timesheets[this.curr.timesheets.length - 1];
+  
+
+  total(): number {
+    if(this.currentTS.day != this.date.getDay() || this.currentTS.month != this.date.getMonth() || this.currentTS.year != this.date.getYear()) {
+      return 0;
+    } else {
+      var i = 0;
+      for(let x = 0; x < this.currentTS.time.length; x++) {
+        i += this.currentTS.time[x].hours;
+      }
+      return i; 
+    }
+  }
+
+
+  public tot: string = precise(this.total());
+  public timesheets: Timesheet[] = this.curr.timesheets;
 
   ngOnInit(): void {
   }
 
+}
+
+function precise(x: number) {
+  return x.toPrecision(4);
 }
 
 
@@ -56,7 +79,7 @@ export class HomepageComponent implements OnInit {
 })
 
 export class addTimeModal {
-  constructor(public dialogRef: MatDialogRef<addTimeModal>, private date: DaeService, private currUser: ActiveUserService) {}
+  constructor(public dialog: MatDialog, public dialogRef: MatDialogRef<addTimeModal>, private date: DaeService, private currUser: ActiveUserService) {}
 
   public today = this.date.getDate();
 
@@ -88,23 +111,32 @@ export class addTimeModal {
 
     var active: User = this.currUser.getActiveStorage();
     if (active.timesheets.length == 0) {
-      active.addTimesheet(timesheet);
-      active.timesheets[0].addTime(times);
+      active.timesheets.push(timesheet);
+      active.timesheets[0].time.push(times);
+      this.currUser.updateActive(active);
     } else {
       //finding the correct date to add the timetrack too
       var found = false;
         for(let x = 0; x < active.timesheets.length; x++) {
             if (active.timesheets[x].year == this.date.getYear() && active.timesheets[x].month == this.date.getMonth() && active.timesheets[x].day == this.date.getDay()) {
-              active.timesheets[x].addTime(times)
+              active.timesheets[x].time.push(times)
+              this.currUser.updateActive(active);
               var found = true;
               break;
             }
         }
       if (found == false) {
-        active.addTimesheet(timesheet);
-        active.timesheets[active.timesheets.length - 1].addTime(times)
+        active.timesheets.push(timesheet);
+        active.timesheets[active.timesheets.length - 1].time.push(times);
+        this.currUser.updateActive(active);
       }
     }
+    this.dialogRef.close();
+    const dialogRef = this.dialog.open(success, {
+      width: '200px',
+      height: '150px'
+    });
+
   }
 }
 
@@ -120,4 +152,17 @@ export function validTime(): ValidatorFn {
 
     return !validTime ? {validTime:true}: null;
   }
+}
+
+
+
+@Component({
+  selector: 'success',
+  templateUrl: 'success.html',
+  styleUrls: ['success.css'],
+})
+
+export class success {
+  constructor(public dialogRef: MatDialogRef<addTimeModal>) {} 
+
 }

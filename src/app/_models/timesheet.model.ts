@@ -13,7 +13,7 @@ export class Timesheet {
         this.time = [];
     }
 
-    addTime(tim: Timetrack) {
+    addTime(tim: Timetrack): void {
         this.time.push(tim);
     }
 }

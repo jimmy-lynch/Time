@@ -1,0 +1,37 @@
+.nav-space {
+    padding-top: 70px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    font-size: 40px;
+    font-family: inter;
+    font-weight: bolder;
+}
+
+.div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #f1f9f7;
+    padding-bottom: 400px;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+.select {
+    margin-top: 20px;
+    font-size: 15px;
+    height: 40px;
+    width: 200px;
+}
+
+.hours {
+    padding-top: 100px;
+    font-size: 30px;
+    color: #FF6C0A;
+}

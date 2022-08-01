@@ -1,1 +1,12 @@
 <app-navbar></app-navbar>
+<div class="nav-space"></div>
+
+<div class="div">
+    <h1 class="header">Select a previous date:</h1>
+    <select [(ngModel)]="selectedLevel" class="select" disableOptionCentering panelClass="myPanel">
+        <option *ngFor="let item of timesheets" [ngValue]="item">
+            {{this.months[item.month - 1]}} {{item.day}}, {{item.year}}
+        </option>
+    </select>
+    <p class="hours">Total Hours worked: <strong>{{this.total_day(this.selectedLevel)}}</strong></p>
+</div>

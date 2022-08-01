@@ -21,7 +21,7 @@
     padding-right: 15px;
     color: #317264;
     font-weight: bold;
-    margin-left: 180px;
+    margin-left: 60px;
 
 }
 
@@ -53,3 +53,24 @@
     margin-left: -10px;
 }
 
+.totalH {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;;
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 6px;
+    margin-left: -20px;
+    margin-right: -20px;
+    background-color: #f1f9f7;
+}
+
+.total {
+    font-weight: bold;
+    
+}
+
+.totalReg {
+    color: #FF8533;
+    font-size: 20px;
+}
