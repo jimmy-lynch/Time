@@ -9,4 +9,14 @@
         </option>
     </select>
     <p class="hours">Total Hours worked: <strong>{{this.total_day(this.selectedLevel)}}</strong></p>
+    <div *ngIf="selected" class="breakdown">
+        <div class="top" >
+            <p class="subject offset">Subject</p>
+            <p class="time under">Time</p>
+        </div>
+        <div class="row" *ngFor="let item of currTsTt">
+            <p class="subject">{{item.subject}}</p>
+            <p class="time">{{this.precision(item.hours)}} hours</p>
+        </div>
+    </div>
 </div>

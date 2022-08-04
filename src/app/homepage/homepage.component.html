@@ -10,5 +10,14 @@
     <div class="totalH">
         <p class="total totalReg">{{tot}} Hours Worked Today</p>
     </div>
-    <p>subject -> hours (label + display)</p>
+    <div class="breakdown">
+        <div class="top">
+            <p class="subject offset">Subject</p>
+            <p class="time under">Time</p>
+        </div>
+        <div class="row" *ngFor="let item of currTsTt">
+            <p class="subject">{{item.subject}}</p>
+            <p class="time">{{this.precision(item.hours)}} hours</p>
+        </div>
+    </div>
 </div>

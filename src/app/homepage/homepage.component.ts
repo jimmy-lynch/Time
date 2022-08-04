@@ -44,6 +44,7 @@ export class HomepageComponent implements OnInit {
   
   public curr: User = this.currUser.getActiveStorage();
   public currentTS: Timesheet = this.curr.timesheets[this.curr.timesheets.length - 1];
+  public currTsTt: Timetrack[] = this.currentTS.time;
   
 
   total(): number {
@@ -63,6 +64,10 @@ export class HomepageComponent implements OnInit {
   public timesheets: Timesheet[] = this.curr.timesheets;
 
   ngOnInit(): void {
+  }
+
+  precision(x: number) {
+    return precise(x);
   }
 
 }

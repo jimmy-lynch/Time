@@ -1,1 +1,18 @@
 <app-navbar></app-navbar>
+<div class="nav-space"></div>
+<h1 class="date">Week of {{this.monday | date:'cccc MMM dd, yyyy'}}</h1>
+<div class="overall">
+    <div *ngFor="let item of weekTS"> 
+        <p class="weekday">{{this.months[item.month - 1]}} {{item.day}},  {{item.year}}</p>
+        <div class="breakdown">
+            <div class="top">
+                <p class="subject offset">Subject</p>
+                <p class="time under">Time</p>
+            </div>
+            <div class="row" *ngFor="let i of item.time">
+                <p class="subject">{{i.subject}}</p>
+                <p class="time">{{this.precision(i.hours)}} hours</p>
+            </div>
+        </div>
+    </div>
+</div>
